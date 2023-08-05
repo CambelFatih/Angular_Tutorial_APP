@@ -7,7 +7,7 @@ import { ParkList, ParkingDetail } from './housinglocation';
 export class HousingService {
 
   url = 'https://api.ibb.gov.tr/ispark/Park';
-  urldetay = 'https://api.ibb.gov.tr/ispark/ParkDetay?id='
+  urldetay = 'https://localhost:7233/api/Parking'
 
   async getAllParkList(): Promise<ParkList[]> {
     const data = await fetch(this.url);
@@ -16,11 +16,10 @@ export class HousingService {
 
 
   async getParkListById(id: number): Promise<ParkingDetail | undefined> {
-    const data = await fetch(`${this.urldetay}${id}`);
+    const data = await fetch(`${this.urldetay}/${id}`);
     return await data.json() ?? {};
   }
   
-  submitApplication(firstName: string, lastName: string, email: string) {
-    console.log(firstName, lastName, email);
-  }
+
 }
+

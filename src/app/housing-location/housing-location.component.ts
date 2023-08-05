@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
   ],
   template: `
   <section class="listing">
+    
     <h2 class="listing-heading">{{ ParkList.parkName }}</h2>
     <p class="listing-location">{{ ParkList.district}}</p>
     <a [routerLink]="['/details',ParkList.parkID]">Learn More</a>
