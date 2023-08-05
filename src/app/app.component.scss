@@ -10,6 +10,26 @@ header {
 .content {
   padding: var(--content-padding);
 }
+.logo-container {
+  display: flex;
+  align-items: center; /* Vertically align items (logo and text) */
+}
+
+.brand-logo {
+  width: 65px; /* Adjust the width of the logo as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.site-name {
+  font-size: 24px; /* Adjust the font size as needed */
+  margin-left: 10px; /* Add some space between the logo and text */
+  display: inline-block; /* Ensure it is displayed as an inline element */
+
+    a {
+      text-decoration: none; /* Remove the underline from the anchor element */
+    }
+}
+
 
 
 /*

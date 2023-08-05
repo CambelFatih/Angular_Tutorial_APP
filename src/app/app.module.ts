@@ -16,9 +16,7 @@ import { DetailsComponent } from './details/details.component';
     DetailsComponent
   ],
   providers: [
-
     AppRoutingModule
-
   ],
   bootstrap: [AppComponent]
 })

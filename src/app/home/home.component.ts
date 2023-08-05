@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
-import { HousingLocation } from '../housinglocation';
+import { ParkList } from '../housinglocation';
 import { HousingService } from '../housing.service';
 
 
@@ -20,8 +20,8 @@ import { HousingService } from '../housing.service';
     </section>
     <section class="results">
       <app-housing-location
-        *ngFor="let housingLocation of filteredLocationList"
-        [housingLocation]="housingLocation">
+        *ngFor="let ParkList of filteredLocationList"
+        [ParkList]="ParkList">
       </app-housing-location>
     </section>
   `,
@@ -29,24 +29,24 @@ import { HousingService } from '../housing.service';
 })
 
 export class HomeComponent {
-  housingLocationList: HousingLocation[] = [];
+  ParkListList: ParkList[] = [];
   housingService: HousingService = inject(HousingService);
-  filteredLocationList: HousingLocation[] = [];
+  filteredLocationList: ParkList[] = [];
 
   constructor() {
-    this.housingService.getAllHousingLocations().then((housingLocationList: HousingLocation[]) => {
-      this.housingLocationList = housingLocationList;
-      this.filteredLocationList = housingLocationList;
+    this.housingService.getAllParkList().then((ParkListList: ParkList[]) => {
+      this.ParkListList = ParkListList;
+      this.filteredLocationList = ParkListList;
     });
   }
 
   filterResults(text: string) {
     if (!text) {
-      this.filteredLocationList = this.housingLocationList;
+      this.filteredLocationList = this.ParkListList;
     }
 
-    this.filteredLocationList = this.housingLocationList.filter(
-      housingLocation => housingLocation?.city.toLowerCase().includes(text.toLowerCase())
+    this.filteredLocationList = this.ParkListList.filter(
+      ParkList => ParkList?.district.toLowerCase().includes(text.toLowerCase())
     );
   }
 }

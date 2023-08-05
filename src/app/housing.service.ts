@@ -1,31 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HousingLocation } from './housinglocation';
+import { ParkList, ParkingDetail } from './housinglocation';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HousingService {
 
-  url = 'http://localhost:3000/locations';
+  url = 'https://api.ibb.gov.tr/ispark/Park';
+  urldetay = 'https://api.ibb.gov.tr/ispark/ParkDetay?id='
 
-  async getAllHousingLocations(): Promise<HousingLocation[]> {
+  async getAllParkList(): Promise<ParkList[]> {
     const data = await fetch(this.url);
     return await data.json() ?? [];
   }
 
-  async getHousingLocationById(id: number): Promise<HousingLocation | undefined> {
-    const data = await fetch(`${this.url}/${id}`);
+
+  async getParkListById(id: number): Promise<ParkingDetail | undefined> {
+    const data = await fetch(`${this.urldetay}${id}`);
     return await data.json() ?? {};
   }
-
+  
   submitApplication(firstName: string, lastName: string, email: string) {
     console.log(firstName, lastName, email);
   }
 }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/
