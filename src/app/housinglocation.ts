@@ -1,3 +1,4 @@
+
 export interface ParkList {
   parkID:        number;
   parkName:      string;
@@ -12,6 +13,7 @@ export interface ParkList {
   isOpen:        boolean;
 }
 
+
 export interface ParkingDetail {
   locationName:  string;
   parkID:        number;
@@ -24,14 +26,19 @@ export interface ParkingDetail {
   workHours:     string;
   parkType:      string;
   freeTime:      number;
-  monthlyFee:    number;
+  monthlyFee:    string;
   tariff:        string;
   district:      string;
   address:       string;
   areaPolygon:   string;
 }
 
-/* export interface HousingLocation {
+/* 
+export interface ParkingDetailList{
+  parkList: ParkingDetail[];
+}
+
+export interface HousingLocation {
   id: number;
   name: string;
   city: string;
